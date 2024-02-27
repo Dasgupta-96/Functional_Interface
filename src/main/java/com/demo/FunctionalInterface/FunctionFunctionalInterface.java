@@ -35,7 +35,14 @@ public class FunctionFunctionalInterface {
         List<String> collect = words.stream().filter(n -> n.length() > 5).map(s -> s.toUpperCase()).collect(Collectors.toList());
         System.out.println(collect);
 
+        List<Integer> data = Arrays.asList(1, 2, 3, 4, 5);
+        double data1 = data.stream().mapToInt(d->d).average().getAsDouble();
+        System.out.println(data1);
 
+        // multiply all no, if no is greater than 100 then find the avg of those no
+        List<Integer> a = Arrays.asList(1, 10, 20, 15, 30);
+        double d = a.stream().map(s -> s * s).filter(n -> n > 100).mapToInt(e -> e).average().getAsDouble();
+        System.out.println(d);
 //         flatMap is used to flatten nested lists, and then map is applied to transform each element.
 // In flatMap() we convert nested list into stream
         List<List<Integer>> list1 = Arrays.asList(Arrays.asList(1, 2, 3),
@@ -63,12 +70,33 @@ public class FunctionFunctionalInterface {
          Optional<String> any = ff.stream().findAny();
          System.out.println(any);
 
+        // Find the second smallest element
+        List < Integer > nums = Arrays.asList(1, 17, 54, 14, 14, 33, 45, -11);
+        Integer i = nums.stream()
+                .distinct()
+                .sorted().skip(1).findFirst().orElse(null);
+        System.out.println(i);
+
+//         Find the second largest element
+//        Integer i = nums.stream()
+//                .distinct()
+//                .sorted((a, b) -> b.compareTo(a)).skip(2)
+//                .findFirst().orElse(null); // sorted in desending order
+//        System.out.println(i);
+
+        // sum of all even numbers
+        List<Integer> data2 = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        int sum = data2.stream().filter(n -> n % 2 == 0).mapToInt(e -> e).sum();
+
+        System.out.println(sum);
+
+         // peek
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 
-        Optional<Integer> sum = numbers.stream()
-                .reduce((a, b) -> a + b);
+        List<Integer> collect1 = numbers.stream()
+                .peek(num -> System.out.println("Original Number: " + num)).collect(Collectors.toList());
 
-        System.out.println(sum.orElse(0));
-
+        System.out.println(collect1);
     }
 }

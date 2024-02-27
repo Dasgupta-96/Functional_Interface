@@ -71,6 +71,21 @@ public class predicate_Interface {
         List<String> wd = Arrays.asList("apple", "banana", "orange");
         List<String> uc = wd.stream().filter(str -> str.length() > 5).map(s -> s.toUpperCase()).collect(Collectors.toList());
         System.out.println(uc);
+
+        // integer to string representation
+     List<Integer> l = Arrays.asList(5, 8, 9, 6, 22, 18);
+     List<String> d1 = l.stream().map(s -> s.toString()).filter(e -> e.startsWith("1")).collect(Collectors.toList());
+     System.out.println(d1);
+
+     List<String> r = l.stream().map(e -> String.valueOf(e)).filter(f -> f.startsWith("2")).collect(Collectors.toList());
+     System.out.println(r);
+
+     // mapToint
+     List<Integer> list2 = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+     int sum = list2.stream().parallel()
+             .filter(n -> n % 2 == 0).mapToInt(e->e*e).sum();
+     System.out.println(sum);
     }
+
     }
 
