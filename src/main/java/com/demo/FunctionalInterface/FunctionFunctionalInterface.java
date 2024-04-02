@@ -59,8 +59,7 @@ public class FunctionFunctionalInterface {
         List<String> concatenatedWords = Stream.of(words1,words2).flatMap(List::stream).map(s->s.toUpperCase()).collect(Collectors.toList());
         System.out.println(concatenatedWords);
 
-// findFirst: This method returns the first element of the stream, or an empty Optional if the stream is empty. It is deterministic, meaning it will consistently return the same result for a particular stream.
-//
+// findFirst: This method returns the first element of the stream, or an empty Optional if the stream is empty. It is deterministic, meaning it will consistently return the same result for a particular
 //findAny: This method returns any element of the stream, or an empty Optional if the stream is empty. It is non-deterministic in parallel streams, meaning it may return different results on multiple invocations for the same stream.
 
          List<String> ff = Arrays.asList("apple", "banana", "orange", "grape");
@@ -98,5 +97,7 @@ public class FunctionFunctionalInterface {
                 .peek(num -> System.out.println("Original Number: " + num)).collect(Collectors.toList());
 
         System.out.println(collect1);
+
+
     }
 }
