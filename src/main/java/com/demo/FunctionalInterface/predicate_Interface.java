@@ -30,7 +30,12 @@ public class predicate_Interface {
         List<Integer> result = list.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());
         System.out.println(result);
 
-        List<String> list1 = Arrays.asList("deb", "arka", "ankit", "aryan");
+     // filter out even no
+     List<Integer> l = Arrays.asList(10, 12, 15, 49, 17);
+     long count = l.stream().filter(n -> n % 2 == 0).count();
+     System.out.println(count);
+
+     List<String> list1 = Arrays.asList("deb", "arka", "ankit", "aryan");
         List<String> a = list1.stream().filter(str->str.equals("deb")).collect(Collectors.toList());
         System.out.println(a);
 // Letter Starts with A
@@ -73,8 +78,8 @@ public class predicate_Interface {
         System.out.println(uc);
 
         // integer to string representation
-     List<Integer> l = Arrays.asList(5, 8, 9, 6, 22, 18);
-     List<String> d1 = l.stream().map(s -> s.toString()).filter(e -> e.startsWith("1")).collect(Collectors.toList());
+     List<Integer> l1 = Arrays.asList(5, 8, 9, 6, 22, 18);
+     List<String> d1 = l1.stream().map(s -> s.toString()).filter(e -> e.startsWith("1")).collect(Collectors.toList());
      System.out.println(d1);
 
      List<String> r = l.stream().map(e -> String.valueOf(e)).filter(f -> f.startsWith("2")).collect(Collectors.toList());
