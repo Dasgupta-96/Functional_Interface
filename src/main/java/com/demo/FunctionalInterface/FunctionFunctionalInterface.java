@@ -102,7 +102,7 @@ public class FunctionFunctionalInterface {
          List<Integer> n = Arrays.asList(1, 2, 3, 4, 5);
          n.stream().filter(s -> s % 2 == 0).peek(System.out::println).map(c->c+c).forEach(b-> System.out.println(b));
 
-         //Intermediate Operation: the operation which returns another stream as result. they are lazy. ex:filter(),map(), distinct(),sorted(),skip()
+         //Intermediate Operation: the operation which returns another stream as result. they are lazy. ex:filter(),map(), distinct(),sorted(),skip(),peek()
 // in intermediate operation they can be chained, they dont produce end result
 
 
