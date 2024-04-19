@@ -22,9 +22,21 @@ public class A {
 
         String s = "abcccd";
 
+
         Map<Character, Long> s1 = s.chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         System.out.println(s1);
 
+     int[] a = {5,2,6,7,7,9,8,5};
+
+        Map<Integer, Long> m = Arrays.stream(a).boxed().collect(Collectors.groupingBy(e -> e, Collectors.counting()));
+        m.entrySet().stream().filter(entry -> entry.getValue() > 1).forEach(d-> System.out.println("Duplicates are "+d.getKey()));
+
+
+    String [] f= {"a","b","c","c","d","e","e"};
+
+        Map<String, Long> c = Arrays.stream(f).collect(Collectors.groupingBy(b -> b, Collectors.counting()));
+        c.entrySet().stream().filter(entry->entry.getValue()>1)
+                .forEach(e-> System.out.println("Duplicates are "+e.getKey()));
     }
 
 }
