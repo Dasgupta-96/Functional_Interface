@@ -1,6 +1,7 @@
 package com.demo.FunctionalInterface;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,5 +19,10 @@ public class EmployeeObject {
            System.out.println(e.getName());
            System.out.println(e.getAge());
        }
+
+       // Sort the Employee age ****** asked in interview so many times.
+        List<Employee> data = x.stream().sorted(Comparator.comparingInt(Employee::getAge)).collect(Collectors.toList());
+
+     data.forEach(System.out::println);
     }
 }
