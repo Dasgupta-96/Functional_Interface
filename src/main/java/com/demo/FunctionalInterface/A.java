@@ -39,6 +39,18 @@ public class A {
         c.entrySet().stream().filter(entry -> entry.getValue() > 1)
                 .forEach(e -> System.out.println("Duplicates are " + e.getKey()));
 
+        String s2 = "india is my mother land";
+
+        Map<Character, Long> s3= s2.chars().mapToObj(d -> (char) d).collect(Collectors.groupingBy(d -> d, Collectors.counting()));
+        s3.entrySet().stream().filter(z->z.getValue()>1).forEach(v-> System.out.println(v.getKey()));
+
+        // reverse thr name
+        String str1 = "My name is Arkadeb";
+        String rev = Arrays.stream(str1.split("\\s+"))
+                .reduce((d, b) -> b + " " + d)
+                .orElse("");
+
+        System.out.println(rev);
     }
 
 }
